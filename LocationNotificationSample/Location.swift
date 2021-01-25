@@ -18,5 +18,4 @@ struct Location: Codable, DefaultsSerializable {
     var latitude: Double
     var longitude: Double
     var place: String
-    var isFavorite: Bool
 }
