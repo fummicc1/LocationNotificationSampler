@@ -107,16 +107,16 @@
 		D3BC6B3A25BEDE24007B0F21 /* LocationNotificationSample */ = {
 			isa = PBXGroup;
 			children = (
+				D3BC6B4925BEDE24007B0F21 /* Info.plist */,
 				D3BC6B3B25BEDE24007B0F21 /* AppDelegate.swift */,
-				D3BC6B3D25BEDE24007B0F21 /* SceneDelegate.swift */,
+				D3B6164A25BEE05900601A10 /* Location.swift */,
+				D3B6164525BEE01E00601A10 /* MapModel.swift */,
 				D3BC6B3F25BEDE24007B0F21 /* MapViewController.swift */,
-				D3BC6B4125BEDE24007B0F21 /* Main.storyboard */,
+				D3B6165525BEE23500601A10 /* NotificationName.swift */,
+				D3BC6B3D25BEDE24007B0F21 /* SceneDelegate.swift */,
 				D3BC6B4425BEDE24007B0F21 /* Assets.xcassets */,
 				D3BC6B4625BEDE24007B0F21 /* LaunchScreen.storyboard */,
-				D3BC6B4925BEDE24007B0F21 /* Info.plist */,
-				D3B6164525BEE01E00601A10 /* MapModel.swift */,
-				D3B6164A25BEE05900601A10 /* Location.swift */,
-				D3B6165525BEE23500601A10 /* NotificationName.swift */,
+				D3BC6B4125BEDE24007B0F21 /* Main.storyboard */,
 			);
 			path = LocationNotificationSample;
 			sourceTree = "<group>";
@@ -466,7 +466,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dev.fummicc1.sample.LocationNotificationSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -485,7 +485,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dev.fummicc1.sample.LocationNotificationSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

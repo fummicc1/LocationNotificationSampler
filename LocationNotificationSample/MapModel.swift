@@ -10,6 +10,7 @@ import CoreLocation
 import SwiftyUserDefaults
 
 protocol MapModelType {
+    var currentLocation: CLLocation? { get }
     var favoriteLocations: [Location] { get }
     func addFavoriteLocation(_ location: Location)
 }
@@ -18,6 +19,7 @@ class MapModel: NSObject, CLLocationManagerDelegate, MapModelType {
     private let locationManager: CLLocationManager
     private let notificationCenter: NotificationCenter
     
+    var currentLocation: CLLocation?
     var favoriteLocations: [Location] = []
     var favoriteLocationsObservation: DefaultsDisposable?
     
@@ -26,6 +28,7 @@ class MapModel: NSObject, CLLocationManagerDelegate, MapModelType {
         self.notificationCenter = notificationCenter
         super.init()
         locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
         favoriteLocationsObservation = Defaults.observe(\.favoriteLocationsKey) { [weak self] update in
             guard let newValue = update.newValue else {
                 return
@@ -33,6 +36,7 @@ class MapModel: NSObject, CLLocationManagerDelegate, MapModelType {
             self?.favoriteLocations = newValue
             self?.notificationCenter.post(.init(name: .favoriteLocations))
         }
+        favoriteLocations = Defaults[\.favoriteLocationsKey]
     }
     
     func addFavoriteLocation(_ location: Location) {
@@ -43,6 +47,7 @@ class MapModel: NSObject, CLLocationManagerDelegate, MapModelType {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
+            self.currentLocation = location
             notificationCenter.post(.init(name: .currentLocation, object: nil, userInfo: ["location": location]))
         }
     }
