@@ -18,4 +18,8 @@ struct Location: Codable, DefaultsSerializable {
     var latitude: Double
     var longitude: Double
     var place: String
+    
+    var identifier: String {
+        "\(latitude):\(longitude)"
+    }
 }

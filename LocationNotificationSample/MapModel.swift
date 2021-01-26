@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UserNotifications
 import CoreLocation
 import SwiftyUserDefaults
 
@@ -13,6 +14,8 @@ protocol MapModelType {
     var currentLocation: CLLocation? { get }
     var favoriteLocations: [Location] { get }
     func addFavoriteLocation(_ location: Location)
+    func registerNotification(at location: Location)
+    func resignNotification(at location: Location)
 }
 
 class MapModel: NSObject, CLLocationManagerDelegate, MapModelType {
@@ -52,7 +55,23 @@ class MapModel: NSObject, CLLocationManagerDelegate, MapModelType {
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        
+    func registerNotification(at location: Location) {
+        let identifier: String = location.identifier
+        let contnet = UNMutableNotificationContent()
+        contnet.title = "\(location.place)の近くいます"
+        contnet.sound = .default
+        let circularRegion = CLCircularRegion(center: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude), radius: 50, identifier: identifier)
+        let trigger = UNLocationNotificationTrigger(region: circularRegion, repeats: false)
+        let request = UNNotificationRequest(identifier: identifier, content: contnet, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if let error = error {
+                assert(false, error.localizedDescription)
+            }
+        }
+    }
+    
+    func resignNotification(at location: Location) {
+        let identifier = location.identifier
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
     }
 }

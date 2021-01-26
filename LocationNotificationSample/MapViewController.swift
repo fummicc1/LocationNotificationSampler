@@ -102,10 +102,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
         let sheet = UIAlertController(title: "\(location.place)", message: nil, preferredStyle: .actionSheet)
         sheet.addAction(UIAlertAction(title: "通知を有効にする", style: .default, handler: { [weak self] _ in
-            fatalError()
+            self?.model.registerNotification(at: location)
         }))
         sheet.addAction(UIAlertAction(title: "通知を無効にする", style: .default, handler: { [weak self] _ in
-            fatalError()
+            self?.model.resignNotification(at: location)
         }))
         sheet.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
         present(sheet, animated: true, completion: nil)
