@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D39321AA25CC4F3000C5EA9F /* MockLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39321A925CC4F3000C5EA9F /* MockLocationManager.swift */; };
+		D39321B225CC513F00C5EA9F /* MockNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39321B125CC513F00C5EA9F /* MockNotificationCenter.swift */; };
 		D3B6164625BEE01E00601A10 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6164525BEE01E00601A10 /* MapModel.swift */; };
 		D3B6164B25BEE05900601A10 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6164A25BEE05900601A10 /* Location.swift */; };
 		D3B6165125BEE1E800601A10 /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = D3B6165025BEE1E800601A10 /* SwiftyUserDefaults */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D39321A925CC4F3000C5EA9F /* MockLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationManager.swift; sourceTree = "<group>"; };
+		D39321B125CC513F00C5EA9F /* MockNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNotificationCenter.swift; sourceTree = "<group>"; };
 		D3B6164525BEE01E00601A10 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		D3B6164A25BEE05900601A10 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		D3B6165525BEE23500601A10 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
@@ -84,6 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D39321A825CC4F1600C5EA9F /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				D39321A925CC4F3000C5EA9F /* MockLocationManager.swift */,
+				D39321B125CC513F00C5EA9F /* MockNotificationCenter.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		D3BC6B2F25BEDE24007B0F21 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +137,7 @@
 		D3BC6B5125BEDE24007B0F21 /* LocationNotificationSampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				D39321A825CC4F1600C5EA9F /* Mock */,
 				D3BC6B5225BEDE24007B0F21 /* LocationNotificationSampleTests.swift */,
 				D3BC6B5425BEDE24007B0F21 /* Info.plist */,
 			);
@@ -288,6 +302,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D39321AA25CC4F3000C5EA9F /* MockLocationManager.swift in Sources */,
+				D39321B225CC513F00C5EA9F /* MockNotificationCenter.swift in Sources */,
 				D3BC6B5325BEDE24007B0F21 /* LocationNotificationSampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

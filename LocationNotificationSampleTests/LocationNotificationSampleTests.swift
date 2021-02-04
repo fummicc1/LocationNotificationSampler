@@ -10,6 +10,11 @@ import XCTest
 
 class LocationNotificationSampleTests: XCTestCase {
 
+    let locationManager = MockLocationManager()
+    let notificationCenter = MockNotificationCenter
+    
+    lazy var model: MapModelType = MapModel(locationManager: mockLocationManager, notificationCenter: notificationCenter)
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
